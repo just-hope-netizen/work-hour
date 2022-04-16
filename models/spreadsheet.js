@@ -23,16 +23,18 @@ module.exports = class Spreadsheet {
   }
 
   save() {
+      
       fs.readFile(p, (err, fileContent) =>{
         let spreadsheet= [];
         if(!err){
-            spreadsheet = JSON.parse(fileContent)
-        }else{
-            spreadsheet.push(this)
+            spreadsheet = JSON.parse(fileContent);
+        }
+          
+        spreadsheet.push(this)
             fs.writeFile(p, JSON.stringify(spreadsheet), (err, fileContent) => {
                 console.log(err);
             })
-        }
+        
 
       })
   }

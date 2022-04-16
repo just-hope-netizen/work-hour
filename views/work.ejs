@@ -1,27 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<%- include('./includes/head.ejs') %>
+<link rel="stylesheet" href="./index.css">
 </head>
-<body>
-    <main>
-        <nav>
-            <ul>
 
-                <li><a href="/" > home</a></li>
-                <li><a href="/schedule" > make a schedule</a></li>
-            </ul>
-        </nav>
-        <section>
-            <header>work</header>
-            <form action="/schedule" method="post">
-                <input type="text" name="activity" id=""> <input type="number" name="hours">
-                <button type="submit">submit</button>
-            </form>
-        </section>
+<body>
+  <main>
+      <%- include('./includes/nav.ejs') %>
+      <section class="hard-to-change-section">
+        <header>Hard-To-Change commitment</header>
+
+        <form action="/schedule" method="post" class="form">
+          <div class="form-control">
+            <label for="activity">Activity</label>
+            <textarea name="activity" id=""  rows="5" class="form-activity" required></textarea>
+          </div>
+
+        <div class="form-control">
+          <label for="hours">Hours allocated for the day</label>
+          <input type="number" name="hours"  class="form-hours" required/>
+        </div>
+          <button type="submit" class="btn ">Create a commitment</button>
+          
+        </form>
+      </section>
     </main>
-</body>
+  </body>
 </html>
