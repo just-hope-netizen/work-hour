@@ -1,10 +1,12 @@
-const express = require('express');
+import express from 'express';
 
 const router = express.Router();
-const spreadsheetController = require('../controller/spreadsheet');
+import{getSpreadsheet, postSpreadsheet, postChangeable} from '../controller/spreadsheet.js';
 
-router.get('/schedule', spreadsheetController.getSpreadsheet);
+router.get('/schedule', getSpreadsheet);
 
-router.post('/schedule', spreadsheetController.postSpreadsheet);
+router.post('/schedule', postSpreadsheet);
 
-module.exports = router;
+router.post('/changeable', postChangeable);
+
+// export default router;

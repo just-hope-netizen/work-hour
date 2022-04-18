@@ -1,22 +1,13 @@
-const fs = require('fs');
-const path = require('path');
+import { readFile, writeFile } from 'fs';
+import { join, dirname} from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
+const p = join(__dirname, '../data', 'activity.json');
 
 
-
-const p = path.join(__dirname, '../data', 'activity.json');
-
-const getSpreadsheet = cb => {
-    fs.writeFile(p, (err, fileContent)=>{
-        if (err) {
-            cb([])
-        }else{
-            cb(JSON.parse(fileContent))
-        }
-    })
-}
-
-
-module.exports = class Spreadsheet {
+export default class Spreadsheet {
   constructor(activity, hours) {
     this.activity = activity;
     this.hours = hours;
@@ -24,14 +15,14 @@ module.exports = class Spreadsheet {
 
   save() {
       
-      fs.readFile(p, (err, fileContent) =>{
+      readFile(p, (err, fileContent) =>{
         let spreadsheet= [];
         if(!err){
             spreadsheet = JSON.parse(fileContent);
         }
           
         spreadsheet.push(this)
-            fs.writeFile(p, JSON.stringify(spreadsheet), (err, fileContent) => {
+            writeFile(p, JSON.stringify(spreadsheet), (err, fileContent) => {
                 console.log(err);
             })
         
@@ -40,7 +31,7 @@ module.exports = class Spreadsheet {
   }
 
   static fetchAll(cb){
-      fs.readFile(p, (err, fileContent)=>{
+      readFile(p, (err, fileContent)=>{
           if (err) {
              cb([]); 
           }else{

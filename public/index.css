@@ -3,14 +3,30 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+body{
+  display: grid;
+  /* look up grid implementation */
+  /* grid-template-rows: minmax(320px, 2560px); */
+  grid-template-rows: auto;
+  grid-template-columns: auto, 200px;
+  grid-template-areas: 
+  'nav ' 
+  'main';
+}
+.nav{
+  grid-area: "nav";
+  background-color: #00695c;
+}
+main{
+  grid-area: "main";
+  background-color: aquamarine;
+}
 .hard-to-change-section,
 .nav-item-list{
     display: flex;
     list-style: none;
 }
 .nav-item-list{
-    background-color: #00695c;
 }
 .hard-header, article{
   width: 50%;

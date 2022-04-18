@@ -1,6 +1,6 @@
-const Spreadsheet = require('../models/spreadsheet');
+import Spreadsheet from '../models/spreadsheet.js';
 
-exports.getSchedule =  async (req, res) => {
+export const getSchedule =  async (req, res) => {
     try{
         Spreadsheet.fetchAll(fileContent =>{
             res.render('index', {
