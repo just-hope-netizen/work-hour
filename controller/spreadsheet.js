@@ -1,13 +1,13 @@
-const Spreadsheet = require('../models/spreadsheet').default;
-import Changeable from '../models/changeable';
+import Spreadsheet from '../models/spreadsheet.js';
+import Changeable from '../models/changeable.js';
 
-exports.getSpreadsheet = async (req, res) => {
+export const getSpreadsheet= async(req, res)=> {
     res.render('work', {
       pageTitle: 'work-hour'
     });
-};
+}
 
-exports.postSpreadsheet =  async(req, res) => {
+export const postSpreadsheet = async(req, res)=> {
     const activity  = req.body.activity;
     const hours = req.body.hours;
     const spreadsheet =  new Spreadsheet(activity, hours);
@@ -16,8 +16,9 @@ exports.postSpreadsheet =  async(req, res) => {
     
     
     
-};
-exports.postChangeable =  async(req, res) => {
+}
+export const postChangeable = async(req, res)=> {
+    // fetch data and save
     const activity  = req.body.activity;
     const hours = req.body.hours;
     const changeable =  new Changeable(activity, hours);
@@ -26,5 +27,5 @@ exports.postChangeable =  async(req, res) => {
     
     
     
-};
+}
 

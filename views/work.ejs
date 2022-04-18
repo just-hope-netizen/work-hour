@@ -3,8 +3,10 @@
 </head>
 
 <body>
-  <%- include('./includes/nav.ejs') %>
-  <main>
+  <div id="root">
+
+    <%- include('./includes/nav.ejs') %>
+    <main>
       <section class="hard-to-change-section">
         <header>Hard-To-Change Commitment</header>
 
@@ -14,15 +16,16 @@
             <textarea name="activity" id=""  rows="5" class="form-activity" required></textarea>
           </div>
 
-        <div class="form-control">
-          <label for="hours">Hours allocated for the day</label>
-          <input type="number" name="hours"  class="form-hours" required/>
-        </div>
+          <div class="form-control">
+            <label for="hours">Hours allocated for the day</label>
+            <input type="number" name="hours"  class="form-hours" required/>
+          </div>
           <button type="submit" class="btn ">Create a commitment</button>
           
         </form>
       </section>
-      <section class="highly-changeable-section">
+
+      <!-- <section class="highly-changeable-section">
         <header>Highly Changeable Commitment</header>
 
         <form action="/changeable" method="post" class="form">
@@ -30,15 +33,16 @@
             <label for="activity">Activity</label>
             <textarea name="activity" id=""  rows="5" class="form-activity" required></textarea>
           </div>
-
-        <div class="form-control">
+          
+          <div class="form-control">
           <label for="hours">Hours allocated for the day</label>
           <input type="number" name="hours"  class="form-hours" required/>
         </div>
-          <button type="submit" class="btn ">Create a commitment</button>
-          
-        </form>
-      </section>
-    </main>
-  </body>
+        <button type="submit" class="btn ">Create a commitment</button>
+        
+      </form>
+    </section> -->
+  </main>
+</div>
+</body>
 </html>

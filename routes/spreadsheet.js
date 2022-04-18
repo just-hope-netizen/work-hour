@@ -1,12 +1,12 @@
 import express from 'express';
 
-const router = express.Router();
+const spreadsheetRouter = express.Router();
 import{getSpreadsheet, postSpreadsheet, postChangeable} from '../controller/spreadsheet.js';
 
-router.get('/schedule', getSpreadsheet);
+spreadsheetRouter.get('/schedule', getSpreadsheet);
 
-router.post('/schedule', postSpreadsheet);
+spreadsheetRouter.post('/schedule', postSpreadsheet);
 
-router.post('/changeable', postChangeable);
+spreadsheetRouter.post('/changeable', postChangeable);
 
-// export default router;
+export default spreadsheetRouter;

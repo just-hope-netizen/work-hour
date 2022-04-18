@@ -1,7 +1,22 @@
 import { readFile, writeFile } from 'fs';
-import { join } from 'path';
+import { join, dirname } from 'path';
+import { fileURLToPath } from 'url';
 
-const p = join(__dirname, '../data', 'activity.json');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+const p = join(__dirname, '../data', 'changeable.json');
+
+ const getProductsFromFile = cb => {
+  readFile(p, (err, fileContent) => {
+    if (err) {
+      cb([]);
+    } else {
+      cb(JSON.parse(fileContent));
+    }
+  });
+};
+
 
 export default class Changeable {
   constructor(activity, hours) {
@@ -10,26 +25,22 @@ export default class Changeable {
   }
 
   save() {
-    fs.readFile(p, (err, fileContent) => {
-      let spreadsheet = [];
+    readFile(p, (err, fileContent) => {
+      let changeableSpreadsheet = [];
       if (!err) {
-        spreadsheet = JSON.parse(fileContent);
+        changeableSpreadsheet = JSON.parse(fileContent);
       }
-
-      spreadsheet.push(this);
-      fs.writeFile(p, JSON.stringify(spreadsheet), (err, fileContent) => {
+      changeableSpreadsheet.push(this);
+      writeFile(p, JSON.stringify(changeableSpreadsheet), (err, fileContent) => {
         console.log(err);
       });
     });
   }
-
-  static fetchAll(cb) {
-    fs.readFile(p, (err, fileContent) => {
-      if (err) {
-        cb([]);
-      } else {
-        cb(JSON.parse(fileContent));
-      }
-    });
+ 
+  get product() {
+    return 'fucking hell!!'
+  }
+   static fetchAll(cb) {
+    getProductsFromFile(cb)
   }
 }
