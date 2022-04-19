@@ -1,0 +1,32 @@
+<%- include('./includes/head.ejs') %>
+<link rel="stylesheet" href="./index.css">
+</head>
+<body>
+  <div id="root">
+
+    <%- include('./includes/nav.ejs') %>
+    <main>
+      
+      <section class="hard-to-change-section">
+        <% if(file.length > 0){ %>
+        <header>Hard-To-Change commitment</header>
+
+        <div class="hard-header">
+          <h4>Activity </h4>
+            <h4>Hours</h4>
+        </div>
+        <% file.forEach(data => { %>
+          <article>
+            <div><%= data.activity %></div>
+            <div><%= data.hours %></div>
+          </article>
+        <%}) %>
+        <% } else{ %>
+        <h1>About you make a work-hour allocation first.</h1>
+        <h2>bitch!</h2>
+        <% } %>
+      </section>
+    </main>
+  </div>
+  </body>
+</html>

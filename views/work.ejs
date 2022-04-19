@@ -1,0 +1,48 @@
+<%- include('./includes/head.ejs') %>
+<link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+  <div id="root">
+
+    <%- include('./includes/nav.ejs') %>
+    <main>
+      <section class="hard-to-change-section">
+        <header>Hard-To-Change Commitment</header>
+
+        <form action="/schedule" method="post" class="form">
+          <div class="form-control">
+            <label for="activity">Activity</label>
+            <textarea name="activity" id=""  rows="5" class="form-activity" required></textarea>
+          </div>
+
+          <div class="form-control">
+            <label for="hours">Hours allocated for the day</label>
+            <input type="number" name="hours"  class="form-hours" required/>
+          </div>
+          <button type="submit" class="btn ">Create a commitment</button>
+          
+        </form>
+      </section>
+
+      <!-- <section class="highly-changeable-section">
+        <header>Highly Changeable Commitment</header>
+
+        <form action="/changeable" method="post" class="form">
+          <div class="form-control">
+            <label for="activity">Activity</label>
+            <textarea name="activity" id=""  rows="5" class="form-activity" required></textarea>
+          </div>
+          
+          <div class="form-control">
+          <label for="hours">Hours allocated for the day</label>
+          <input type="number" name="hours"  class="form-hours" required/>
+        </div>
+        <button type="submit" class="btn ">Create a commitment</button>
+        
+      </form>
+    </section> -->
+  </main>
+</div>
+</body>
+</html>
